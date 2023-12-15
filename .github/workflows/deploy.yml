@@ -30,24 +30,6 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            sudo apt-get -y update
-            sudo apt-get install -y apache2
-            sudo systemctl start apache2
-            sudo systemctl enable apache2
-            sudo apt install php libapache2-mod-php php-mysql
-            sudo apt-get install -y php8.1 libapache2-mod-php8.1 php8.1-cli php8.1-mysql php8.1-gd php8.1-imagick  php8.1-tidy php8.1-xmlrpc php8.1-common php8.1-curl php8.1-mbstring php8.1-xml php8.1-bcmath php8.1-bz2 php8.1-intl php8.1-readline php8.1-zip
-            sudo apt install mysql-server 
-            sudo mysql -u root
-            ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password by 'Testpassword@123';
-            
-            sudo apt-get update
-            sudo apt-get install -y phpmyadmin
-            sudo ln -s /etc/phpmyadmin/apache.conf /etc/apache2/conf-available/phpmyadmin.conf
-            sudo a2enconf phpmyadmin
-            sudo systemctl restart apache2
-
-
-
             cd home
             sudo mv * /var/www/html
             
